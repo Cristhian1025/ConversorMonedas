@@ -3,7 +3,6 @@ import java.awt.EventQueue;
 
 import com.conversor.interfaz.*;
 
-
 import java.util.Map;
 import java.util.HashMap;
 
@@ -53,6 +52,7 @@ public class Main {
 		deYenesJaponeses.put("Libra Esterlina", 0.0062);
 		deYenesJaponeses.put("Won sul-coreano", 0.057);
 
+		
 		deWonsSurcoreanos.put("Peso Colombiano", 30.30);
 		deWonsSurcoreanos.put("Dólar", 0.0082);
 		deWonsSurcoreanos.put("Euro", 0.0077);
@@ -61,9 +61,6 @@ public class Main {
     }
 	
 	public static void main(String[] args) {
-		
-		/*Crea las converciones*/
-		
 		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -75,10 +72,6 @@ public class Main {
 				}
 			}
 		});
-		
-	}
-	public void inicializar(){
-		
 	}
 	
 
@@ -88,52 +81,6 @@ public class Main {
 		if (monedaI.equals(monedaO)) {
 			return dato;
 		}
-		  // Obtén la tasa de conversión de la moneda de origen a la moneda de destino.
-		
-		/*
-		Map<String, Double> dePesosColombianos = new HashMap<>();
-		dePesosColombianos.put("Dólar",0.00025);
-		dePesosColombianos.put("Euro", 0.00023);
-		dePesosColombianos.put("Libra Esterlina", 0.00020);
-		dePesosColombianos.put("Yen Japonés", 0.036);
-		dePesosColombianos.put("Won sul-coreano", 0.33);
-
-		Map<String, Double> deDolares = new HashMap<>();
-		deDolares.put("Peso Colombiano", 3900.0);
-		deDolares.put("Euro", 0.91);
-		deDolares.put("Libra Esterlina", 0.85);
-		deDolares.put("Yen Japonés", 131.97);
-		deDolares.put("Won sul-coreano", 122.00);
-
-		Map<String, Double> deEuros = new HashMap<>();
-		deEuros.put("Peso Colombiano", 4210.0);
-		deEuros.put("Dólar", 1.05);
-		deEuros.put("Libra Esterlina", 0.90);
-		deEuros.put("Yen Japonés", 139.64);
-		deEuros.put("Won sul-coreano", 128.60);
-
-		Map<String, Double> deLibrasEsterlinas = new HashMap<>();
-		deLibrasEsterlinas.put("Peso Colombiano", 5000.0);
-		deLibrasEsterlinas.put("Dólar", 1.15);
-		deLibrasEsterlinas.put("Euro", 1.00);
-		deLibrasEsterlinas.put("Yen Japonés", 152.95);
-		deLibrasEsterlinas.put("Won sul-coreano", 144.00);
-
-		Map<String, Double> deYenesJaponeses = new HashMap<>();
-		deYenesJaponeses.put("Peso Colombiano", 27.78);
-		deYenesJaponeses.put("Dólar", 0.0076);
-		deYenesJaponeses.put("Euro", 0.0071);
-		deYenesJaponeses.put("Libra Esterlina", 0.0062);
-		deYenesJaponeses.put("Won sul-coreano", 0.057);
-
-		Map<String, Double> deWonsSurcoreanos = new HashMap<>();
-		deWonsSurcoreanos.put("Peso Colombiano", 30.30);
-		deWonsSurcoreanos.put("Dólar", 0.0082);
-		deWonsSurcoreanos.put("Euro", 0.0077);
-		deWonsSurcoreanos.put("Libra Esterlina", 0.0066);
-		deWonsSurcoreanos.put("Yen Japonés", 0.063);
-				
-		*/
 		switch (monedaI) {
 		
 		//De Peso Colombiano
@@ -162,19 +109,18 @@ public class Main {
         	tasaConversion = deLibrasEsterlinas.get(monedaO);
             resultado = dato * tasaConversion;
             return resultado;
-            
+        //De Yen
         case "Yen Japonés":
         	tasaConversion = deYenesJaponeses.get(monedaO);
             resultado = dato * tasaConversion;
             return resultado;
+        //De Won
         case"Won sul-coreano":
         	tasaConversion = deWonsSurcoreanos.get(monedaO);
             resultado = dato * tasaConversion;
             return resultado;
-        
         default:
             throw new IllegalArgumentException("Unknown currency: " + monedaI);
     }  	
-	
 }
 }

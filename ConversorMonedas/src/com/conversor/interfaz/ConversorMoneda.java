@@ -7,7 +7,6 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
-import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
@@ -76,8 +75,8 @@ public class ConversorMoneda extends JPanel {
 		btnLimpiar = new JButton("Limpiar");
 		btnLimpiar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				
+				txtOut.setText("");
+				txtInt.setText("");
 			}
 		});
 		add(btnLimpiar);
@@ -85,19 +84,10 @@ public class ConversorMoneda extends JPanel {
 		btnConvertir = new JButton("Convertir");
 		btnConvertir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				obtenerDatos();
-				/*
-				if() {
-					
-				}else {
-					
-				}
-				*/
-				
+				obtenerDatos();		
 			}
 		});
 		add(btnConvertir);
-
 	}
 
 	public JButton getBtnNewButton() {
@@ -112,7 +102,6 @@ public class ConversorMoneda extends JPanel {
 		Double dato =0.0;
         String monedaI = (String) listaI.getSelectedItem();
 		String monedaO = (String) listaO.getSelectedItem();
-		
         try {
         	dato = Double.parseDouble((txtInt.getText()));
         	
@@ -120,14 +109,11 @@ public class ConversorMoneda extends JPanel {
                 JOptionPane.showMessageDialog(this, "Ingresar una Cantidad Valida", "Error", JOptionPane.ERROR_MESSAGE);
                 throw new NumberFormatException("Unknown currency: ");
               
-            
             }
         	} catch (NumberFormatException e) {
         	JOptionPane.showMessageDialog(this, "La entrada no es válida", "Error", JOptionPane.ERROR_MESSAGE);
         	}
         
-
-		System.out.println(monedaI+ " - "+ monedaO);
 		Double result = main.convertir(dato,monedaI,monedaO );
 		txtOut.setText(result.toString());
     }
